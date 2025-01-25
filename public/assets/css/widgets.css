@@ -1,0 +1,174 @@
+.weather-widget {
+    width: 100%;
+    height: 100%;
+    max-width: 100%; /* Ensure the widget doesn't exceed the parent container */
+    max-height: 100%; /* Ensure the widget doesn't exceed the parent container */
+    margin: auto;
+    background: linear-gradient(to bottom right, #87CEEB, #1E90FF);
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent content overflow */
+    font-size: calc(1.5vw + 1.5vh); /* Scale font size based on viewport */
+}
+
+.weather-widget h5,
+.weather-widget p {
+    margin: 0.2em;
+    line-height: 1.2;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Enhance readability */
+}
+
+
+
+/* Media query for extremely small containers */
+
+
+.moving-banner {
+    position: relative;
+    overflow: hidden; /* Ensures content doesn't overflow */
+    white-space: nowrap;
+    width: 100%; /* Matches the parent container's width */
+    height: 100%; /* Matches the parent container's width */
+    background-color: #007bff; /* Blue background */
+    padding: 0px;
+    color: #fff; /* White text color */
+    display: flex; 
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.banner-content {
+    display: inline-block;
+    animation: move-left 10s linear infinite; /* Moves the content */
+    /* font-size: clamp(1rem, 2.5vw, 2rem); */
+    font-size: calc(100% + 1vw); 
+    font-weight: bold;
+}
+
+@keyframes move-left {
+    from {
+        transform: translateX(100%); /* Start outside the right edge */
+    }
+    to {
+        transform: translateX(-100%); /* Move completely outside the left edge */
+    }
+}
+@font-face {
+    font-family: 'Digital-7';
+    src: url('fonts/digital-7.ttf') format('woff2'), b, g, mdrx url('digital-7.woff') format('woff');
+}
+
+/* Wrapper for the clock and date */
+.clockdate-wrapper {
+    background: #141E30;
+    background: linear-gradient(to right, #243B55, #141E30);
+    padding: 5% 10%; /* Responsive padding */
+    width: 100%;
+    max-width: 100%;
+    height: 100%;  /* Adjust height to the parent container */
+    text-align: center;
+    border-radius: 5px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Time clock style */
+#dateclock {
+    font-family: Digital-7, sans-serif;
+    color: #fff;
+    text-shadow: 0px 0px 1px #fff;
+    margin-bottom: 1vh;
+    white-space: nowrap;
+    transition: font-size 0.2s ease-in-out; /* Smooth transition for font size */
+}
+
+/* The date style */
+#date {
+    letter-spacing: 0.1vw;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    white-space: nowrap;
+}
+/* Clock container */
+.clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    color: white;
+    border-radius: 5px;
+    font-family: sans-serif;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 0.5rem;
+    gap: 0.3rem;
+    box-sizing: border-box;
+}
+
+/* Time units (hours, minutes, seconds) */
+.time-unit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Separator styling */
+.separator {
+    display: flex;
+    align-items: center;
+    font-size: 2.5vw;
+}
+
+/* Digit styles */
+.digit {
+    font-size: 2.5vw;
+    line-height: 1;
+    position: relative;
+    display: inline-block;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+/* Flip animation */
+.flip-in {
+    animation: flipIn 0.6s ease-in-out forwards;
+}
+
+.flip-out {
+    animation: flipOut 0.6s ease-in-out forwards;
+}
+
+@keyframes flipIn {
+    from {
+        transform: rotateX(-90deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes flipOut {
+    from {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+    to {
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+}
